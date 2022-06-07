@@ -10,3 +10,5 @@ function component() {
 }
 
 document.body.appendChild(component()); */
+
+import './style.css';
