@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import './style.css';
 import arrTasks from './modules/tasksList.js';
 import compileTaskItem from './modules/taskItem.js';
