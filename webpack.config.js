@@ -3,10 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  devServer: {
+    static: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Task Organiser',
-      myPageHeader: 'Todays To Do List',
       template: './src/index.html',
     }),
   ],
@@ -16,8 +17,8 @@ module.exports = {
     clean: true,
   },
   mode: 'development',
-  devServer: {
-    static: './dist',
+  optimization: {
+    runtimeChunk: 'single',
   },
   module: {
     rules: [
@@ -26,8 +27,5 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
-  },
-  optimization: {
-    runtimeChunk: 'single',
   },
 };
