@@ -1,19 +1,20 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# AwesomeBooks_ver2.0
+# Task Organiser
 
-> A Modular version of Awesome Books. In this version of Awesome book, js codes are organised in modules.
+> In this project, we build a simple HTML list of To Do tasks using webpack and served by a webpack dev server.
 
 ## Built With
 
 - HTML
 - CSS
--Javascript
+- Javascript
+- Webpack
 
 ## Live Demo
-[source code](https://github.com/AngomRanjan/AwesomeBooks_ver2.0.git)
+[source code](https://github.com/AngomRanjan/Task-Organiser.git)
 
-[Live Demo Link]( https://angomranjan.github.io/AwesomeBooks_ver2.0/)
+[Live Demo Link](https://angomranjan.github.io/Task-Organiser/)
 
 ## Authors
 
@@ -27,11 +28,11 @@
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/AngomRanjan/AwesomeBooks_ver2.0/issues).
+Feel free to check the [issues page](https://github.com/AngomRanjan/Task-Organiser/issues).
 
 ## Show your support
 
-Give a [⭐️](https://github.com/AngomRanjan/AwesomeBooks_ver2.0/stargazers) if you like this project!
+Give a [⭐️](https://github.com/AngomRanjan/Task-Organiser/stargazers) if you like this project!
 
 ## Acknowledgments
 - Microverse Team
