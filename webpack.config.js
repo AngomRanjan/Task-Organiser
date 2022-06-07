@@ -5,17 +5,19 @@ module.exports = {
   entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      hash: true,
       title: 'Task Organiser',
       myPageHeader: 'Todays To Do List',
       template: './src/index.html',
-      filename: './dist/index.html',
     }),
   ],
   output: {
-    filename: 'main.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+  },
+  mode: 'development',
+  devServer: {
+    static: './dist',
   },
   module: {
     rules: [
@@ -24,5 +26,8 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
 };

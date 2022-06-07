@@ -1,14 +1,8 @@
-/* import _ from 'lodash';
-
-function component() {
-  const element = document.createElement('div');
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component()); */
-
 import './style.css';
+import arrTasks from './modules/tasksList.js';
+import compileTaskItem from './modules/taskItem.js';
+
+const ulTasks = document.getElementById('ul-tasks');
+for (let i = 0; i < arrTasks.length; i += 1) {
+  ulTasks.appendChild(compileTaskItem(arrTasks[i]));
+}

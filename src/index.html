@@ -3,22 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Angom's Task Organiser</title>
     <!-- <link rel="stylesheet" href="index.css" /> -->
   </head>
   <body>
     <header>
-      <a href="#"><%= htmlWebpackPlugin.options.title %></a>
+      <a href="#">Task Organiser</a>
     </header>
     <main>
-      <h1>
-        <%= htmlWebpackPlugin.options.myPageHeader %>
-      </h1>
-      <ul class="ul-tasks" id="ul-tasks">        
-      </ul>
+      <div class="container">
+        <h1>
+          Today's To Do
+        </h1>
+        <form action="#">
+          <input type="text" id="new-task" placeholder="Add New Task">
+         </form>
+        <ul class="ul-tasks" id="ul-tasks">        
+        </ul>
+        <button class="btn-clear" type="button">
+          Clear All Completed Task
+        </button>
+      </div>
     </main>
     <footer>
-      Copyright. 2022.
+      Copyright.
     </footer>
   </body>
 </html>
