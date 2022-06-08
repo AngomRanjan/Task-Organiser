@@ -1,17 +1,7 @@
 import { arrTasks } from './tasksList.js';
+import { resetTasks, resetIcon } from './reset_functions.js';
 
-const resetTasks = () => {
-  const ulTasks = document.getElementById('ul-tasks');
-  ulTasks.innerHTML = '';
-};
-
-const resetIcon = () => {
-  const icons = Array.from(document.getElementsByClassName('item-btns'));
-  icons.forEach((icon) => {
-    icon.classList.remove('bi-trash3', 'bi-three-dots-vertical');
-    icon.classList.add('bi-three-dots-vertical');
-  });
-};
+/* || ============== Event Handlers ============= || */
 
 const addInputDescEvent = (eID) => {
   const inputDesc = document.getElementById(`desc-${eID}`);
@@ -42,6 +32,7 @@ const addIconEvent = (eID) => {
     e.stopPropagation();
   });
 };
+/* || ============== Event Handlers  Ends============= || */
 
 const compileTaskItem = (task) => {
   // Compiling Task Card
