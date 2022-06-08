@@ -60,6 +60,7 @@ const compileTaskItem = (task) => {
 };
 
 const populateTaskList = () => {
+  resetTasks();
   const ulTasks = document.getElementById('ul-tasks');
   for (let i = 0; i < arrTasks.length; i += 1) {
     ulTasks.appendChild(compileTaskItem(arrTasks[i]));
@@ -69,4 +70,4 @@ const populateTaskList = () => {
   }
 };
 
-export { populateTaskList, resetTasks };
+export default populateTaskList;

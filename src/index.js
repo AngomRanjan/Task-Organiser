@@ -1,5 +1,5 @@
 import './style.css';
-import { populateTaskList, resetTasks } from './modules/taskItem.js';
+import populateTaskList from './modules/taskItem.js';
 import { Task, addTask, arrTasks } from './modules/tasksList.js';
 
 populateTaskList();
@@ -13,7 +13,6 @@ textInput.addEventListener('change', (event) => {
   } else {
     addTask(Task(textInput.value.trim()));
     console.table(arrTasks);
-    resetTasks();
     populateTaskList();
   }
   textInput.value = '';
