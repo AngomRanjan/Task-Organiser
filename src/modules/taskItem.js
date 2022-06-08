@@ -1,4 +1,7 @@
+import arrTasks from './tasksList.js';
+
 const compileTaskItem = (task) => {
+  // Compiling Task Card 
   const liTask = document.createElement('li');
   liTask.id = `task-${task.index}`;
   liTask.className = 'tasks';
@@ -16,4 +19,11 @@ const compileTaskItem = (task) => {
   return liTask;
 };
 
-export default compileTaskItem;
+const populateTaskList = () => {
+  const ulTasks = document.getElementById('ul-tasks');
+  for (let i = 0; i < arrTasks.length; i += 1) {
+  ulTasks.appendChild(compileTaskItem(arrTasks[i]));
+}
+}
+
+export default populateTaskList;
