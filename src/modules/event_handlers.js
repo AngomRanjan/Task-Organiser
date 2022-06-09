@@ -1,6 +1,6 @@
 /* || ============== Event Handlers ============= || */
 import { populateTaskList } from './taskItem.js';
-import { Task, addTask, delTask } from './tasksList.js';
+import { Task, addTask, delTask, arrTasks } from './tasksList.js';
 import { resetIcon } from './reset_functions.js';
 
 const addInputDescEvent = (eID) => {
@@ -14,8 +14,18 @@ const addInputDescEvent = (eID) => {
   });
 
   inputDesc.addEventListener('change', (e) => {
-    document.getElementById(`icon-${eID}`).classList.remove('bi-trash3');
-    document.getElementById(`icon-${eID}`).classList.add('bi-three-dots-vertical');
+    if (inputDesc.value.trim() === '') {
+      alert('Task Cannot be Empty \n task not change!');
+      inputDesc.value = arrTasks[eID-1].description;
+    }
+    else {
+      console.table(arrTasks);
+      arrTasks[eID-1].description = inputDesc.value.trim();
+      console.table(arrTasks);
+    }
+    icon.classList.remove('bi-trash3');
+    icon.classList.add('bi-three-dots-vertical');
+    inputDesc.blur();
     e.stopImmediatePropagation();
   });
 };
@@ -24,10 +34,8 @@ const addIconEvent = (eID) => {
   const icon = document.getElementById(`icon-${eID}`);
   icon.addEventListener('click', (e) => {
     if (icon.classList.contains('bi-three-dots-vertical')) {
-      alert('hi i am vertical');
       document.getElementById(`desc-${eID}`).focus();
     } else {
-      alert(`hi iam trash ${eID}`);
       delTask(eID-1);
       populateTaskList();
     }

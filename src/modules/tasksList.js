@@ -1,3 +1,8 @@
+// function saveLocal() {
+//   localStorage.setItem('arrTaskLocal', JSON.stringify(arrTasks));
+// }
+
+//const arrTasks = JSON.parse(localStorage.getItem('arrTaskLocal')) || [];
 const arrTasks = [];
 
 const Task = (description) => ({ index: arrTasks.length + 1 || 1, description, completed: false });
