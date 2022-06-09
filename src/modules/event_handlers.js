@@ -35,7 +35,6 @@ const addIconEvent = (eID) => {
     if (icon.classList.contains('bi-three-dots-vertical')) {
       document.getElementById(`desc-${eID}`).focus();
     } else {
-      console.log(eID);
       delTask(eID - 1);
       populateTaskList();
     }

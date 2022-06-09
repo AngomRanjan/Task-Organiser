@@ -4,7 +4,6 @@ import { addIconEvent, addInputDescEvent } from './event_handlers.js';
 import checkChanged from './checked.js';
 
 const renderUI = () => {
-  console.table(arrTasks);
   populateTaskList();
   if (arrTasks.length === 0) {
     for (let i = 0; i < arrTasks.length; i += 1) {
