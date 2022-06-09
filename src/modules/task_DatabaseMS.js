@@ -13,8 +13,8 @@ const addTask = (task) => {
 const updateIndex = () => {
   for (let i = 0; i < arrTasks.length; i += 1) {
     arrTasks[i].index = i + 1;
-    saveLocal();
   }
+  saveLocal();
 };
 
 const delTask = (arrIndex) => {
