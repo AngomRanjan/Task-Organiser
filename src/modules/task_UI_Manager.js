@@ -24,10 +24,9 @@ const compileTaskItem = (task) => {
   if (checkbox.checked) {
     iCon.classList.add('item-btns', 'bi', 'bi-trash3');
     inputDesc.classList.add('completed');
-  }
-  else {
+  } else {
     iCon.classList.add('item-btns', 'bi', 'bi-three-dots-vertical');
-  }  
+  }
   iCon.id = `icon-${task.index}`;
   liTask.append(checkbox, inputDesc, iCon);
   return liTask;
