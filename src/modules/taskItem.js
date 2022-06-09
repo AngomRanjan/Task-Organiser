@@ -38,4 +38,4 @@ const populateTaskList = () => {
   }
 };
 
-export default populateTaskList;
+export { populateTaskList, compileTaskItem };

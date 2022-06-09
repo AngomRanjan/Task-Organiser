@@ -1,5 +1,6 @@
 /* || ============== Event Handlers ============= || */
-
+import { populateTaskList } from './taskItem.js';
+import { Task, addTask, delTask } from './tasksList.js';
 import { resetIcon } from './reset_functions.js';
 
 const addInputDescEvent = (eID) => {
@@ -27,6 +28,8 @@ const addIconEvent = (eID) => {
       document.getElementById(`desc-${eID}`).focus();
     } else {
       alert(`hi iam trash ${eID}`);
+      delTask(eID-1);
+      populateTaskList();
     }
     e.stopPropagation();
   });

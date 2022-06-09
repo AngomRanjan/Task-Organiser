@@ -5,4 +5,19 @@ const addTask = (task) => {
   arrTasks.push(task);
 };
 
-export { arrTasks, Task, addTask };
+const updateIndex = () => {
+  for (let i = 0; i < arrTasks.length; i += 1) {
+    arrTasks[i].index = i + 1;
+  }
+};
+
+const delTask = (arrIndex) => {
+  console.table(arrTasks);
+  arrTasks.splice(arrIndex, 1);
+  updateIndex();
+  console.table(arrTasks);
+};
+
+export {
+  arrTasks, Task, addTask, delTask, updateIndex,
+};
