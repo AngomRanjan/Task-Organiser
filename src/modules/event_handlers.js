@@ -1,6 +1,7 @@
 /* || ============== Event Handlers ============= || */
-import { populateTaskList } from './taskItem.js';
-import { Task, addTask, delTask, arrTasks } from './tasksList.js';
+
+import { populateTaskList } from './task_UI_Manager.js';                                                                                                                                               // eslint-disable-line
+import { saveLocal, delTask, arrTasks } from './task_DatabaseMS.js';
 import { resetIcon } from './reset_functions.js';
 
 const addInputDescEvent = (eID) => {
@@ -16,12 +17,10 @@ const addInputDescEvent = (eID) => {
   inputDesc.addEventListener('change', (e) => {
     if (inputDesc.value.trim() === '') {
       alert('Task Cannot be Empty \n task not change!');
-      inputDesc.value = arrTasks[eID-1].description;
-    }
-    else {
-      console.table(arrTasks);
-      arrTasks[eID-1].description = inputDesc.value.trim();
-      console.table(arrTasks);
+      inputDesc.value = arrTasks[eID - 1].description;
+    } else {
+      arrTasks[eID - 1].description = inputDesc.value.trim();
+      saveLocal();
     }
     icon.classList.remove('bi-trash3');
     icon.classList.add('bi-three-dots-vertical');
@@ -36,7 +35,7 @@ const addIconEvent = (eID) => {
     if (icon.classList.contains('bi-three-dots-vertical')) {
       document.getElementById(`desc-${eID}`).focus();
     } else {
-      delTask(eID-1);
+      delTask(eID - 1);
       populateTaskList();
     }
     e.stopPropagation();

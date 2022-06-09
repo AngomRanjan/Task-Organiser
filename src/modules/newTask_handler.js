@@ -1,5 +1,5 @@
-import { compileTaskItem } from './taskItem.js';
-import { arrTasks, Task, addTask } from './tasksList.js';
+import { compileTaskItem } from './task_UI_Manager.js';
+import { arrTasks, Task, addTask } from './task_DatabaseMS.js';
 import { addIconEvent, addInputDescEvent } from './event_handlers.js';
 
 const newTaskListener = () => {
@@ -7,25 +7,15 @@ const newTaskListener = () => {
   textInput.addEventListener('change', (event) => {
     event.preventDefault();
     if (textInput.value.trim() === '') {
-      alert('Task Cannot be Empty \n Tasks Not added');
+      alert('Sorry! Task Cannot be Empty \n Tasks Not added');
     } else {
       addTask(Task(textInput.value.trim()));
-
       const ulTasks = document.getElementById('ul-tasks');
-      const newTaskAdded = arrTasks[arrTasks.length-1];
+      const newTaskAdded = arrTasks[arrTasks.length - 1];
       ulTasks.appendChild(compileTaskItem(newTaskAdded));
       addIconEvent(newTaskAdded.index);
       addInputDescEvent(newTaskAdded.index);
-    // addCheckBoxEvent(arrTasks[i].index);
-
-
-/*
-      populateTaskList();
-      for (let i = 0; i < arrTasks.length; i += 1) {
-        addIconEvent(arrTasks[i].index);
-        addInputDescEvent(arrTasks[i].index);
-        // addCheckBoxEvent(arrTasks[i].index);
-      }*/
+      // addCheckBoxEvent(arrTasks[i].index);
     }
     textInput.value = '';
     textInput.blur();

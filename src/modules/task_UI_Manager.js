@@ -1,6 +1,6 @@
-import { arrTasks } from './tasksList.js';
+import { arrTasks } from './task_DatabaseMS.js';
 import { resetTasks } from './reset_functions.js';
-import { addIconEvent, addInputDescEvent } from './event_handlers.js';
+import { addIconEvent, addInputDescEvent } from './event_handlers.js';                                                                           // eslint-disable-line
 
 const compileTaskItem = (task) => {
   // Compiling Task Card
