@@ -15,7 +15,6 @@ const newTaskListener = () => {
       ulTasks.appendChild(compileTaskItem(newTaskAdded));
       addIconEvent(newTaskAdded.index);
       addInputDescEvent(newTaskAdded.index);
-      // addCheckBoxEvent(arrTasks[i].index);
     }
     textInput.value = '';
     textInput.blur();

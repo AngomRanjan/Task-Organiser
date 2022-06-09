@@ -34,7 +34,6 @@ const populateTaskList = () => {
     ulTasks.appendChild(compileTaskItem(arrTasks[i]));
     addIconEvent(arrTasks[i].index);
     addInputDescEvent(arrTasks[i].index);
-    // addCheckBoxEvent(arrTasks[i].index);
   }
 };
 

@@ -8,7 +8,6 @@ const renderUI = () => {
     for (let i = 0; i < arrTasks.length; i += 1) {
       addIconEvent(arrTasks[i].index);
       addInputDescEvent(arrTasks[i].index);
-      // addCheckBoxEvent(arrTasks[i].index);
     }
   }
 };
