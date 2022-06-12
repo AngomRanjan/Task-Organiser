@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/Micronaut-Angom%20Chittaranjan-blue)](https://github.com/AngomRanjan)
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Task Organiser
 
@@ -21,7 +21,7 @@
 👤 Angom Chittaranjan
 
 - GitHub: [@AngomRanjan](https://github.com/AngomRanjan)
-- [![](https://img.shields.io/badge/@RanjanAngom-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/RanjanAngom)
+- Twitter: [@RanjanAngom](https://twitter.com/RanjanAngom)
 - LinkedIn: [angom-chittaranjan](https://linkedin.com/in/angom-chittaranjan)
 
 ## 🤝 Contributing
@@ -33,6 +33,8 @@ Feel free to check the [issues page](https://github.com/AngomRanjan/Task-Organis
 ## Show your support
 
 Give a [⭐️](https://github.com/AngomRanjan/Task-Organiser/stargazers) if you like this project!
+
+![](https://img.shields.io/twitter/follow/RanjanAngom?style=social)
 
 ## Acknowledgments
 - Microverse Team
