@@ -21,7 +21,7 @@
 👤 Angom Chittaranjan
 
 - GitHub: [@AngomRanjan](https://github.com/AngomRanjan)
-- Twitter: [@RanjanAngom](https://twitter.com/RanjanAngom)
+- [![](https://img.shields.io/badge/@RanjanAngom-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/RanjanAngom)
 - LinkedIn: [angom-chittaranjan](https://linkedin.com/in/angom-chittaranjan)
 
 ## 🤝 Contributing
