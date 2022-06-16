@@ -9,7 +9,8 @@ const newTaskListener = () => {
     event.preventDefault();
     if (textInput.value.trim() === '') {
       alert('Sorry! Task Cannot be Empty \n Tasks Not added');
-    } else {
+    }
+    else {
       addTask(Task(textInput.value.trim()));
       const ulTasks = document.getElementById('ul-tasks');
       const newTaskAdded = arrTasks[arrTasks.length - 1];
