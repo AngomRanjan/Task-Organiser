@@ -1,9 +1,4 @@
-import { arrTasks } from './task_DatabaseMS.js';
-import { resetTasks } from './reset_functions.js';
-import { addIconEvent, addInputDescEvent } from './event_handlers.js';                                                                           // eslint-disable-line
-import checkChanged from './checked.js';
-
-const compileTaskItem = (task) => {
+const compileTaskCard = (task) => {
   // Compiling Task Card
   const liTask = document.createElement('li');
   liTask.id = `task-${task.index}`;
@@ -32,15 +27,4 @@ const compileTaskItem = (task) => {
   return liTask;
 };
 
-const populateTaskList = () => {
-  resetTasks();
-  const ulTasks = document.getElementById('ul-tasks');
-  for (let i = 0; i < arrTasks.length; i += 1) {
-    ulTasks.appendChild(compileTaskItem(arrTasks[i]));
-    addIconEvent(arrTasks[i].index);
-    addInputDescEvent(arrTasks[i].index);
-    checkChanged(arrTasks[i].index);
-  }
-};
-
-export { populateTaskList, compileTaskItem };
+export default compileTaskCard;
