@@ -4,38 +4,38 @@ class ArrTasks {
     this.tasks = [];
   }
 
-  newTask (description) {
+  newTask(description) {
     return {
       index: this.tasks.length + 1 || 1,
-      description: description,
-      completed: false
+      description,
+      completed: false,
     };
   }
 
   updateIndex() {
-    this.tasks = this.tasks.map((task, i) => {task.index = i + 1; return task});
+    this.tasks = this.tasks.map((task, i) => { task.index = i + 1; return task; });
   }
 
   addTask(description) {
     this.tasks.push(this.newTask(description));
-  /*  this.tasks.push({
-      index: this.tasks.length + 1 || 1,
-      description: description,
-      completed: false
-    });*/
   }
 
   deleteTask(arrIndex) {
     this.tasks.splice(arrIndex, 1);
-    //updateIndex();
+    this.updateIndex();
+  }
+
+  clearCompleted() {
+    this.tasks = this.tasks.filter((t) => t.completed === false);
+    this.updateIndex();
   }
 
   lastAdded() {
-    return this.tasks[this.tasks.length-1];
+    return this.tasks[this.tasks.length - 1];
   }
 }
 
-const arrTasks = new ArrTasks;
+const arrTasks = new ArrTasks();
 
 arrTasks.tasks = JSON.parse(localStorage.getItem('arrTaskLocal')) || [];
 
