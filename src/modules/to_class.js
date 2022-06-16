@@ -37,6 +37,6 @@ class ArrTasks {
 
 const arrTasks = new ArrTasks();
 
-arrTasks.tasks = JSON.parse(localStorage.getItem('arrTaskLocal')) || [];
+arrTasks.tasks = []; //JSON.parse(localStorage.getItem('arrTaskLocal')) || [];
 
 export default arrTasks;

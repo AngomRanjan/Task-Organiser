@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import arrTasks from './to_class.js';
 import appendTaskUL from './appendTaskUL.js';
 import saveLocal from './saveLocal.js';
