@@ -16,10 +16,13 @@ const taskDescChanged = (e) => {
   const inputDesc = document.getElementById(e.target.id);
   const arrIndex = (e.target.id).replace(/[\D]/gi, '') - 1;
   const icon = document.getElementById(`icon-${arrIndex + 1}`);
-
-  if (inputDesc.value.trim() === '') {
-    alert('Task Cannot be Empty \n task not change!');
+  const newDesc = inputDesc.value.trim();
+  if (newDesc === '' || arrTasks.isExist(newDesc)) {
+    const msg = (newDesc === '') ? 'Cannot Be Empty' : 'Already Exists';
+    alert(`Task Change Failed!\nTask ${msg}.`);
     inputDesc.value = arrTasks.tasks[arrIndex].description;
+  } else if(arrTasks.isExist(inputDesc.value.trim())) {
+    alert();
   } else {
     arrTasks.tasks[arrIndex].description = inputDesc.value.trim();
     arrTasks.tasks[arrIndex].completed = false;
