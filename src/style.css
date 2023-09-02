@@ -99,9 +99,17 @@ li { width: 100%; }
   font-size: 16px;
 }
 
-.completed {
+[type='checkbox']:checked + input {
   color: red;
   text-decoration-line: line-through;
+}
+
+[type='text']:focus + i {
+  color: grey;
+}
+
+.bi-trash3 {
+  color: red;
 }
 
 #new-task { width: calc(100% - 44px); }

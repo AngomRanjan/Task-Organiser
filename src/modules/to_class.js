@@ -42,6 +42,10 @@ class ArrTasks {
     this.updateIndex();
   }
 
+  editTask(index, newVal) {
+    this.#tasks[index].description = newVal;
+  }
+
   clearCompleted() {
     this.#tasks = this.#tasks.filter((t) => t.completed === false);
     this.updateIndex();
