@@ -4,7 +4,7 @@ import appendTaskUL from './appendTaskUL.js';
 import { resetTasks } from './reset_functions.js';
 import saveLocal from './saveLocal.js';
 
-const textInput = document.getElementById('new-task');
+const addForm = document.getElementById('new-task-ph');
 const btnClear = document.getElementById('btn-clear');
 
 const delCompleted = (e) => {
@@ -17,16 +17,16 @@ const delCompleted = (e) => {
   e.stopPropagation();
 };
 
-const newTaskChange = (event) => {
+const handleAddForm = (event) => {
   event.preventDefault();
-  if (textInput.value.trim() === '') {
-    alert('Sorry! Task Cannot be Empty \n Tasks Not added');
+  const taskDesc = addForm.firstElementChild.value.trim();
+  if (arrTasks.isExist(taskDesc)) {
+    alert('Add Task Failed!\nTask Already Exists.');
+    return;
   } else {
-    addTaskItem(textInput.value.trim());
+    addTaskItem(taskDesc);
   }
-  textInput.value = '';
-  textInput.blur();
-  event.stopPropagation();
+  addForm.reset();
 };
 
 const renderUI = () => {
@@ -34,7 +34,7 @@ const renderUI = () => {
     appendTaskUL(task);
   });
 
-  textInput.addEventListener('change', newTaskChange);
+  addForm.addEventListener('submit', handleAddForm);
   btnClear.addEventListener('click', delCompleted);
 };
 
