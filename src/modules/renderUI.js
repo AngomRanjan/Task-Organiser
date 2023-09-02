@@ -7,33 +7,26 @@ import saveLocal from './saveLocal.js';
 const addForm = document.getElementById('new-task-ph');
 const btnClear = document.getElementById('btn-clear');
 
-const delCompleted = (e) => {
-  arrTasks.clearCompleted();
-  saveLocal();
+const populateList = () => {
   resetTasks();
-  arrTasks.tasks.forEach((task) => {
-    appendTaskUL(task);
-  });
-  e.stopPropagation();
+  arrTasks.tasks.forEach((task) => appendTaskUL(task));
 };
 
-const handleAddForm = (event) => {
-  event.preventDefault();
-  const taskDesc = addForm.firstElementChild.value.trim();
-  if (arrTasks.isExist(taskDesc)) {
-    alert('Add Task Failed!\nTask Already Exists.');
-    return;
-  } else {
-    addTaskItem(taskDesc);
-  }
-  addForm.reset();
+const delCompleted = () => {
+  arrTasks.clearCompleted();
+  saveLocal();
+  populateList();
+};
+
+const handleAddForm = (e) => {
+  e.preventDefault();
+  const taskDesc = e.target.elements['new-task'].value.trim();
+  addTaskItem(taskDesc);
+  e.target.reset();
 };
 
 const renderUI = () => {
-  arrTasks.tasks.forEach((task) => {
-    appendTaskUL(task);
-  });
-
+  populateList();
   addForm.addEventListener('submit', handleAddForm);
   btnClear.addEventListener('click', delCompleted);
 };
