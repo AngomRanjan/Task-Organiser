@@ -46,10 +46,6 @@ class ArrTasks {
     this.#tasks = this.#tasks.filter((t) => t.completed === false);
     this.updateIndex();
   }
-
-  lastAdded() {
-    return this.#tasks[this.#tasks.length - 1];
-  }
 };
 
 const arrTasks =new ArrTasks(JSON.parse(localStorage.getItem('arrTaskLocal')));

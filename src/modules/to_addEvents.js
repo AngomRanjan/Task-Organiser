@@ -54,14 +54,13 @@ const chkBoxChanged = (e) => {
 };
 
 const iconDelEditClicked = (e) => {
-  const curId = e.target.id;
-  const eID = curId.replace(/[\D]/gi, '');
-  const icon = document.getElementById(curId);
-  if (icon.classList.contains('bi-three-dots-vertical')) {
-    document.getElementById(`desc-${eID}`).focus();
-  } else {
-    removeTaskItem(eID);
-  }
+  const icon = e.target;  
+  const targetInput = icon.previousElementSibling;
+  if (icon.classList.contains('bi-three-dots-vertical'))
+    targetInput.focus();
+  else
+    removeTaskItem(icon.parentNode);
+  
   e.stopPropagation();
 };
 

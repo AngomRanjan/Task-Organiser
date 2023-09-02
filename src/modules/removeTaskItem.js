@@ -14,11 +14,11 @@ const updateElementId = (firstItem, lastItem) => {
   }
 };
 
-const removeTaskItem = (eID) => {
+const removeTaskItem = (taskLi) => {
+  const eID = taskLi.id.split('-')[1];
   arrTasks.deleteTask(eID - 1);
   saveLocal();
-  const liTask = document.getElementById(`task-${eID}`);
-  liTask.parentNode.removeChild(liTask);
+  taskLi.parentNode.removeChild(taskLi);
   updateElementId(Number(eID) + 1, arrTasks.tasks.length + 1);
 };
 
