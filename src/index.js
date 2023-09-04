@@ -1,4 +1,4 @@
 import './style.css';
-import renderUI from './modules/renderUI.js';
+import app from './modules/app.js';
 
-renderUI();
+app();
