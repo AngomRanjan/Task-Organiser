@@ -1,6 +1,7 @@
 import arrTasks from './to_class.js';
 import removeTaskItem from './removeTaskItem.js';
 import saveLocal from './saveLocal.js';
+import { resetIcon } from './reset_functions.js';
 
 const taskDescFocus = (e) => {
   const icon = e.target.nextElementSibling;
@@ -8,12 +9,8 @@ const taskDescFocus = (e) => {
   e.stopPropagation();
 };
 
-const taskDescBlur = (e) => {
-  const checkBox = e.target.previousElementSibling;
-  const icon = e.target.nextElementSibling;
-  icon.className = checkBox.checked ? 'item-btns bi bi-trash3'
-                                      : 'item-btns bi bi-three-dots-vertical';
-  e.stopPropagation();
+const taskDescBlur = () => {
+  resetIcon();
 };
 
 const taskDescChanged = (e) => {
@@ -28,11 +25,11 @@ const taskDescChanged = (e) => {
     arrTasks.editTask(arrIndex, newDesc);
     saveLocal();
   }
-  inputDesc.blur();
-  e.stopImmediatePropagation();
+  // inputDesc.blur();
+  inputDesc.previousElementSibling.focus();
 };
 
-const chkBoxChanged = (e) => {
+const chkBoxClicked = (e) => {
   const checkBox = e.target;
   arrTasks.tasks[checkBox.id - 1].completed = checkBox.checked;
   saveLocal();
@@ -59,7 +56,7 @@ const addEvents = (eID) => {
   taskDesc.addEventListener('change', taskDescChanged);
   taskDesc.addEventListener('blur', taskDescBlur);
   iconDelEdit.addEventListener('click', iconDelEditClicked);
-  chkBox.addEventListener('change', chkBoxChanged);
+  chkBox.addEventListener('click', chkBoxClicked);
 };
 
 export default addEvents;
