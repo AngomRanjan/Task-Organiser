@@ -14,7 +14,7 @@ class ArrTasks {
   }
 
   get lastItem() {
-    return this.#tasks[this.length-1];
+    return this.#tasks[this.length - 1];
   }
 
   isExist(desc) {
@@ -30,7 +30,7 @@ class ArrTasks {
   }
 
   updateIndex() {
-    this.#tasks = this.#tasks.map((task, i) => { task.index = i + 1; return task; });
+    this.#tasks.map((task, i) => (task.index = i + 1, { ...task }))
   }
 
   addTask(description) {
@@ -52,6 +52,6 @@ class ArrTasks {
   }
 };
 
-const arrTasks =new ArrTasks(JSON.parse(localStorage.getItem('arrTaskLocal')));
+const arrTasks = new ArrTasks(JSON.parse(localStorage.getItem('arrTaskLocal')));
 
 export default arrTasks;
