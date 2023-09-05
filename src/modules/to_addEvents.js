@@ -38,8 +38,9 @@ const chkBoxClicked = (e) => {
                                       : 'item-btns bi bi-three-dots-vertical';
 };
 
-const iconDelEditClicked = (e) => {
+const iconDelEditClicked = (removeTaskItem, e) => {
   const icon = e.target;
+  console.log(e.target);
   const targetInput = icon.previousElementSibling;
   if (icon.classList.contains('bi-three-dots-vertical'))
     targetInput.focus();
@@ -55,7 +56,7 @@ const addEvents = (eID) => {
   taskDesc.addEventListener('focus', taskDescFocus);
   taskDesc.addEventListener('change', taskDescChanged);
   taskDesc.addEventListener('blur', taskDescBlur);
-  iconDelEdit.addEventListener('click', iconDelEditClicked);
+  iconDelEdit.addEventListener('click', iconDelEditClicked.bind(null, removeTaskItem));
   chkBox.addEventListener('click', chkBoxClicked);
 };
 

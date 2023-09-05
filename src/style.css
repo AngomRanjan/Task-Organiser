@@ -42,12 +42,12 @@ main {
 
 .tasks {
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr repeat(2, 1.5rem);
   gap: 10px;
   align-items: center;
   height: 48px;
   border-bottom: 1px solid #d3d3d3;
-  padding-left: 10px;
 }
 
 .container {
@@ -108,15 +108,28 @@ li { width: 100%; }
   color: grey;
 }
 
+.tasks > i {
+  max-width: 1rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.bi-three-dots-vertical {
+  margin-right: 0;
+  margin-left: auto;
+}
+
 .bi-trash3 {
   color: red;
+  margin-right: 10px;
 }
 
 #new-task { width: calc(100% - 44px); }
 
 .task-desc { width: fit-content; }
 
-.item-btns {
+/* .item-btns {
   margin-left: auto;
   margin-right: 10px;
-}
+} */

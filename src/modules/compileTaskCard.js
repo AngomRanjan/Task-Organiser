@@ -1,24 +1,27 @@
 const compileTaskCard = ({ index, description, completed }) => {
   // Compiling Task Card
   const liTask = document.createElement('li');
-  liTask.id = `task-${index}`;
-  liTask.className = 'tasks';
+  liTask.id = `1`;
+  liTask.className = 'task';
 
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
+  checkbox.name = 'task-cb';
   checkbox.checked = completed;
-  checkbox.id = index;
 
   const inputDesc = document.createElement('input');
-  inputDesc.id = `desc-${index}`;
   inputDesc.type = 'text';
+  inputDesc.name = 'task-desc';
   inputDesc.value = description;
-  inputDesc.className = completed ? 'task-desc completed' : 'task-desc';
 
-  const iCon = document.createElement('i');
-  iCon.className = completed ? 'item-btns bi bi-trash3' : 'item-btns bi bi-three-dots-vertical';
-  iCon.id = `icon-${index}`;
-  liTask.append(checkbox, inputDesc, iCon);
+  const iEdit = document.createElement('i');
+  iEdit.className = 'fa-regular fa-pen-to-square';
+  const iUpdate = document.createElement('i');
+  iUpdate.className = 'fa-solid fa-check';
+  const iDelete = document.createElement('i');
+  iDelete.className = 'fa-solid fa-check';
+  
+  liTask.append(checkbox, inputDesc, iEdit, iUpdate, iDelete);
   return liTask;
 };
 
