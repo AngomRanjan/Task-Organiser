@@ -1,4 +1,3 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
 
 * {
   padding: 0;
@@ -40,7 +39,7 @@ main {
   align-items: center;
 }
 
-.tasks {
+.task {
   list-style: none;
   display: grid;
   grid-template-columns: 1.5rem 1fr repeat(2, 1.5rem);
@@ -78,7 +77,6 @@ ul,
 li { width: 100%; }
 
 #new-task-ph {
-  /* list-style: none; */
   display: flex;
   gap: 10px;
   align-items: center;
@@ -91,7 +89,7 @@ li { width: 100%; }
   padding: 5px 10px;
 }
 
-.task-desc,
+[name='task-desc'],
 #new-task {
   border: none;
   outline: none;
@@ -108,28 +106,37 @@ li { width: 100%; }
   color: grey;
 }
 
-.tasks > i {
-  max-width: 1rem;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.bi-three-dots-vertical {
-  margin-right: 0;
-  margin-left: auto;
-}
-
-.bi-trash3 {
-  color: red;
-  margin-right: 10px;
-}
-
 #new-task { width: calc(100% - 44px); }
 
-.task-desc { width: fit-content; }
+#list > li > * {  
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  height: 1.3rem;
+  background: transparent;
+  width: 100%;
+}
 
-/* .item-btns {
-  margin-left: auto;
-  margin-right: 10px;
-} */
+#list [type='text'] {
+  border: none;
+  color: red;
+  font-size: 1.2em;
+}
+
+i {
+  font-size:1.3rem;
+  color: green;
+}
+
+input:focus+i {
+  display: none;
+}
+.fa-check {
+  display: none;
+}
+[type='text']:focus ~ .fa-check {
+  display: inline;
+}
+i+i+i {
+  color: red;
+}
