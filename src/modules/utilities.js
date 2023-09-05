@@ -4,8 +4,8 @@ const newNode = (paramElement, ...paramAttribs) => {
   const node = document.createElement(paramElement);
   if(paramAttribs) {
     paramAttribs.forEach(attrib => {
-      const [name, value] = attrib.split('=');
-      node[name] = value;
+      const [name, ...value] = attrib.split('=');
+      node[name] = [...value].join('=');
     });
   };
   return node;

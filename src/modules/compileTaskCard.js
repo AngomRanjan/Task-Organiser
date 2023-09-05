@@ -1,26 +1,25 @@
+import newNode from "./utilities";
+
 const compileTaskCard = ({ index, description, completed }) => {
-  // Compiling Task Card
-  const liTask = document.createElement('li');
-  liTask.id = `1`;
-  liTask.className = 'task';
+  // Compiles a Task Card
+  const liTask = newNode("li", `id=${index}`, "className=task");
+  const checkbox = newNode(
+    "input",
+    "type=checkbox",
+    "name=task-cb",
+    `checked=${completed}`
+  );
+  const inputDesc = newNode(
+    "input",
+    "type=text",
+    "name=task-desc",
+    `value=${description}`
+  );
 
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.name = 'task-cb';
-  checkbox.checked = completed;
+  const iEdit = newNode("i", "className=fa-regular fa-pen-to-square");
+  const iUpdate = newNode("i", "className=fa-solid fa-check");
+  const iDelete = newNode("i", "className=fa-regular fa-trash-can");
 
-  const inputDesc = document.createElement('input');
-  inputDesc.type = 'text';
-  inputDesc.name = 'task-desc';
-  inputDesc.value = description;
-
-  const iEdit = document.createElement('i');
-  iEdit.className = 'fa-regular fa-pen-to-square';
-  const iUpdate = document.createElement('i');
-  iUpdate.className = 'fa-solid fa-check';
-  const iDelete = document.createElement('i');
-  iDelete.className = 'fa-solid fa-check';
-  
   liTask.append(checkbox, inputDesc, iEdit, iUpdate, iDelete);
   return liTask;
 };
