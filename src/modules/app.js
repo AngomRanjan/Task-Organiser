@@ -1,7 +1,7 @@
 import arrTasks from './to_class.js';
 import addTaskItem from './addTaskItem.js';
 import appendTaskUL from './appendTaskUL.js';
-import { resetTasks } from './reset_functions.js';
+import resetTasks from './reset_functions.js';
 import saveLocal from './saveLocal.js';
 
 const app = () => {  
