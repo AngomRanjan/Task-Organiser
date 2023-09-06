@@ -128,6 +128,10 @@ i {
   color: green;
 }
 
+i:hover {
+  cursor: pointer;
+}
+
 input:focus+i {
   display: none;
 }
@@ -139,4 +143,11 @@ input:focus+i {
 }
 i+i+i {
   color: red;
+}
+
+form button {
+  color: green;
+  font-size: 1.5em;
+  background: none;
+  border: none;
 }
