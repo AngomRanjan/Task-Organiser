@@ -38,7 +38,7 @@ const handleChange = (e) => {
 
 const handleEdit = (e) => e.target.previousElementSibling.focus();
 
-const handleDelete = (removeTaskItem, e) => removeTaskItem(e.target.parentNode);
+const handleDelete = (e) => removeTaskItem(e.target.parentNode);
 
 const addEvents = (element) => {
   const handlers = [
@@ -51,8 +51,7 @@ const addEvents = (element) => {
   
   handlers.forEach((handler, i) => {
     const event = i === 1 ? "change" : "click";
-    const callback = i === 4 ? handler.bind(null, removeTaskItem) : handler;
-    element.children[i].addEventListener(event, callback);
+    element.children[i].addEventListener(event, handler);
   });
 };
 
