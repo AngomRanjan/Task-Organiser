@@ -1,63 +1,59 @@
-import arrTasks from './to_class.js';
-import removeTaskItem from './removeTaskItem.js';
-import saveLocal from './saveLocal.js';
-import { resetIcon } from './reset_functions.js';
+import arrTasks from "./to_class.js";
+import removeTaskItem from "./removeTaskItem.js";
+import saveLocal from "./saveLocal.js";
 
-const taskDescFocus = (e) => {
-  const icon = e.target.nextElementSibling;
-  icon.className = 'item-btns bi bi-trash3';
-  e.stopPropagation();
+const isValid = (newDesc) => {
+  return !(newDesc === "" || arrTasks.isExist(newDesc));
 };
 
-const taskDescBlur = () => {
-  resetIcon();
-};
-
-const taskDescChanged = (e) => {
-  const inputDesc = e.target;
-  const arrIndex = (inputDesc.id).split('-')[1] - 1;
-  const newDesc = inputDesc.value.trim();
-  if (newDesc === '' || arrTasks.isExist(newDesc)) {
-    const msg = (newDesc === '') ? 'Cannot Be Empty' : 'Already Exists';
-    alert(`Task Change Failed!\nTask ${msg}.`);
-    inputDesc.value = arrTasks.tasks[arrIndex].description;
-  } else {
-    arrTasks.editTask(arrIndex, newDesc);
-    saveLocal();
-  }
-  // inputDesc.blur();
-  inputDesc.previousElementSibling.focus();
-};
-
-const chkBoxClicked = (e) => {
-  const checkBox = e.target;
-  arrTasks.tasks[checkBox.id - 1].completed = checkBox.checked;
+const updateChange = (arrIndex, newDesc) => {
+  arrTasks.editTask(arrIndex, newDesc);
   saveLocal();
-  const icon = checkBox.nextElementSibling.nextElementSibling;
-  icon.className = checkBox.checked ? 'item-btns bi bi-trash3'
-                                      : 'item-btns bi bi-three-dots-vertical';
+  return "Update Task Successful";
 };
 
-const iconDelEditClicked = (removeTaskItem, e) => {
-  const icon = e.target;
-  console.log(e.target);
-  const targetInput = icon.previousElementSibling;
-  if (icon.classList.contains('bi-three-dots-vertical'))
-    targetInput.focus();
-  else
-    removeTaskItem(icon.parentNode);
-  e.stopPropagation();
+const cancelUpdate = (desc, newDesc) => {
+  let msg = newDesc === "" ? "Task Is Empty!" : "Task Already Exist!";
+  desc.value = arrTasks.tasks[desc.parentNode.id - 1].description;
+  console.log(arrTasks.tasks[1]);
+  return (msg += "\nTask Update Failed!");
 };
 
-const addEvents = (eID) => {
-  const chkBox = eID.children[0];
-  const taskDesc = eID.children[1];
-  const iconDelEdit = eID.children[2];
-  taskDesc.addEventListener('focus', taskDescFocus);
-  taskDesc.addEventListener('change', taskDescChanged);
-  taskDesc.addEventListener('blur', taskDescBlur);
-  iconDelEdit.addEventListener('click', iconDelEditClicked.bind(null, removeTaskItem));
-  chkBox.addEventListener('click', chkBoxClicked);
+const handleChecked = (e) => {
+  const cb = e.target;
+  arrTasks.tasks[cb.parentNode.id - 1].completed = cb.checked;
+  saveLocal();
+};
+
+const handleChange = (e) => {
+  const li = e.target.parentNode;
+  const index = li.id - 1;
+  const newDesc = li.children["task-desc"].value.trim();
+  const msg = isValid(newDesc)
+    ? updateChange(index, newDesc)
+    : cancelUpdate(li.children["task-desc"], newDesc);
+  alert(msg);
+  li.firstElementChild.focus();
+};
+
+const handleEdit = (e) => e.target.previousElementSibling.focus();
+
+const handleDelete = (removeTaskItem, e) => removeTaskItem(e.target.parentNode);
+
+const addEvents = (element) => {
+  const handlers = [
+    handleChecked,
+    handleChange,
+    handleEdit,
+    handleChange,
+    handleDelete,
+  ];
+  
+  handlers.forEach((handler, i) => {
+    const event = i === 1 ? "change" : "click";
+    const callback = i === 4 ? handler.bind(null, removeTaskItem) : handler;
+    element.children[i].addEventListener(event, callback);
+  });
 };
 
 export default addEvents;
